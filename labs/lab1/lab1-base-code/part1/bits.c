@@ -149,8 +149,7 @@ int tmax(void) {
  *   Rating: 1
  */
 int isZero(int x) {
-  
-  return 2;
+  return x==0;
 }
 /* 
  * bitXor - x^y using only ~ and & 
