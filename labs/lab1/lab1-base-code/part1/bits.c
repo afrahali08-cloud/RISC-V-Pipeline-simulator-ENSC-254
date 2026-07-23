@@ -139,7 +139,8 @@ NOTES:
  *   Rating: 1
  */
 int tmax(void) {
-  return 2;
+
+  return ~(1<<31);   //Shifting the bits to get 10000000 00000000 00000000 00000000, then not-ing it to get 0x7fffffff
 }
 /*
  * isZero - returns 1 if x == 0, and 0 otherwise 
@@ -149,7 +150,7 @@ int tmax(void) {
  *   Rating: 1
  */
 int isZero(int x) {
-  return x==0;
+  return x==0;       // '==' operator is a boolean and usually return such values as either 0 or 1
 }
 /* 
  * bitXor - x^y using only ~ and & 
@@ -159,7 +160,8 @@ int isZero(int x) {
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-  return 2;
+  
+  return ~( ~(x & ~y) & ~(~x & y) );
 }
 /* 
  * isNotEqual - return 0 if x == y, and 1 otherwise 
@@ -169,7 +171,8 @@ int bitXor(int x, int y) {
  *   Rating: 2
  */
 int isNotEqual(int x, int y) {
-  return 2;
+
+  return !!(x^y);
 }
 /* 
  * sign - return 1 if positive, 0 if zero, and -1 if negative
@@ -190,6 +193,8 @@ int sign(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
+  
+
   return 2;
 }
 /* 
